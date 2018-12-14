@@ -47,7 +47,7 @@ namespace Artest.EFCore.SqlGenerationTests
 				using (var context = new BloggingContext(options))
 				{
 					var selectQuery = from b in context.Blogs
-					                  join p in context.Posts on b.Id equals p.Id into ps from p in ps.DefaultIfEmpty()
+					                  join p in context.Posts on b.Id equals p.BlogId into ps from p in ps.DefaultIfEmpty()
 					                  select new { b.Url, Titul = p.Title };
 
 
